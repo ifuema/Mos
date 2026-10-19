@@ -71,6 +71,8 @@ extension Interceptor {
     }
     public func restart() {
         stop()
+        // 重启边界上停止平滑滚动, 丢弃旧会话尚未投递的帧
+        ScrollPoster.shared.stop()
         Timer.scheduledTimer(
             timeInterval: 0.5,
             target: self,

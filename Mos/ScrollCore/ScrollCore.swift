@@ -38,6 +38,18 @@ class ScrollCore {
     
     // MARK: - 滚动事件处理
     let scrollEventCallBack: CGEventTapCallBack = { (proxy, type, event, refcon) in
+        // Tap 被系统禁用时停止发送并清理投递上下文 (由 Interceptor 的守护负责重新启用)
+        if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
+            ScrollPoster.shared.stop()
+            return Unmanaged.passUnretained(event)
+        }
+        if type != .scrollWheel {
+            return Unmanaged.passUnretained(event)
+        }
+        // 跳过 Mos 自己合成的平滑事件, 避免重复进入平滑管线
+        if ScrollUtils.shared.isSyntheticSmoothEvent(event) {
+            return Unmanaged.passUnretained(event)
+        }
         // 不处理触控板
         // 无法区分黑苹果, 因为黑苹果的触控板驱动直接模拟鼠标输入
         // 无法区分 Magic Mouse, 因为其滚动特征与内置的 Trackpad 一致
@@ -116,7 +128,6 @@ class ScrollCore {
         if enableSmooth {
             ScrollPoster.shared.update(
                 event: event,
-                proxy: proxy,
                 duration: duration,
                 y: scrollEvent.Y.usableValue,
                 x: scrollEvent.X.usableValue,
