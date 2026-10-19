@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://mos.caldis.me/">
-    <img width="320" src="https://github.com/Caldis/Mos/blob/master/docs/resources/image/intro.png?raw=true">
+    <img width="320" src="docs/resources/image/intro.png">
   </a>
 </p>
 
@@ -33,16 +33,16 @@ http://mos.caldis.me/
 ## Screenshot
 
 <p align="center">
-  <img width="600" src="https://github.com/Caldis/Mos/blob/master/docs/resources/image/ru/Mointor.png?raw=true">
+  <img width="600" src="docs/resources/image/ru/Mointor.png">
 </p>
 <p align="center">
-  <img width="562" src="https://github.com/Caldis/Mos/blob/master/docs/resources/image/ru/PreferencesGeneral.png?raw=true">
+  <img width="562" src="docs/resources/image/ru/PreferencesGeneral.png">
 </p>
 <p align="center">
-  <img width="562" src="https://github.com/Caldis/Mos/blob/master/docs/resources/image/ru/PreferencesAdvanced.png?raw=true">
+  <img width="562" src="docs/resources/image/ru/PreferencesAdvanced.png">
 </p>
 <p align="center">
-  <img width="562" src="https://github.com/Caldis/Mos/blob/master/docs/resources/image/ru/PreferencesException.png?raw=true">
+  <img width="562" src="docs/resources/image/ru/PreferencesException.png">
 </p>
 
 
